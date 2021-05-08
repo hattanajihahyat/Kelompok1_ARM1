@@ -1,0 +1,130 @@
+{% extends 'layout.html' %} {% block title %} Home {% endblock %} {% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="">
+      {% block body %}
+      <div class="container">
+        <div class="starter-template">
+          <h1>Control HVAC</h1>
+          <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">On</button>
+          <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Off</button>
+
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <td>id</td>
+
+                <td>Datetime</td>
+                <td>Temperatur</td>
+                <td>Status</td>
+              </tr>
+            </thead>
+
+            <tbody>
+              {% for item in hvacs %}
+
+              <tr>
+                <td>{{item.id}}</td>
+
+                <td>{{ item.time }}</td>
+                <td>{{ item.temp }}</td>
+                <td>{{ item.status }}</td>
+
+                <!-- Modal -->
+
+                <div id="modalEdit{{ item.id }}" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                        <h4 class="modal-title">Edit Data</h4>
+                      </div>
+
+                      <div class="modal-body">
+                        <form action="{{ url_for('updateHvac') }}" method="POST">
+                          <div class="form-group">
+                            <label>Datetime:</label>
+
+                            <input type="hidden" name="id" value="{{ item.id }}" />
+
+                            <input type="text" class="form-control" name="time" value="{{ item.time }}" />
+                            <label>Temperatur:</label>
+                            <input type="text" class="form-control" name="temp" value="{{ item.temp }}" />
+                            <label>Status:</label>
+                            <input type="text" class="form-control" name="status" value="{{ item.status }}" />
+                          </div>
+
+                          <div class="form-group">
+                            <button class="btn btn-warning" type="submit">Update</button>
+                          </div>
+                        </form>
+                      </div>
+
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {% else %}
+              </tr>
+
+              <tr>
+                <td colspan="3">Unbelievable. No entries here so far</td>
+              </tr>
+
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Modal -->
+
+      <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+              <h4 class="modal-title">Tambah Data</h4>
+            </div>
+
+            <div class="modal-body">
+              <form action="{{ url_for('saveHvac') }}" method="POST">
+                <div class="form-group">
+                  <label>Datetime:</label>
+
+                  <input type="text" class="form-control" name="time" />
+                  <label>Temperatur:</label>
+
+                  <input type="text" class="form-control" name="temp" />
+                  <label>Status:</label>
+
+                  <input type="text" class="form-control" name="status" />
+                </div>
+
+                <div class="form-group">
+                  <button class="btn btn-primary" type="submit">Simpan</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- /.container -->
+
+      {% endblock %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

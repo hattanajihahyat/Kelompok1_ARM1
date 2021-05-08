@@ -1,0 +1,84 @@
+{% extends 'layout.html' %} {% block title %} Home {% endblock %} {% block body %}
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<title>ARM1 Connection</title>
+<!-- Jumbotron -->
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4"><span>Dashboard Industrial Equipment Control System</span></h1>
+    <h3 class="display-5"><span>Powered By Group 1 ARM 1</span></h3>
+  </div>
+</div>
+<!-- akhir Jumbotron -->
+
+<div class="container">
+  <!-- seperti apa -->
+  <div class="row workingspace">
+    <div class="col-lg-4">
+      <img src="/static/img/poke.png" alt="fotobengkel" class="img-fluid rounded" />
+    </div>
+    <div class="col-lg-5">
+      <h2>Siapa Kami ?</h2>
+      <p>Kami adalah mahasiswa kelas ARM 1 Kelompok 1 Universitas Gadjah Mada yang mengambil jurusan Teknik Mesin</p>
+    </div>
+  </div>
+  <!-- end seperti apa -->
+
+  <!-- info mobil listrik -->
+  <div class="row justify-content-center">
+    <div class="col info-panel-info">
+      <div class="col-lg text-center">
+        <h2>Permasalahan Industrial Equipment Control System kami ahlinya</h2>
+        <h5>Kami mengerjakan permasalahan-permasalahan seperti</h5>
+      </div>
+      <div class="row">
+        <div class="col-sm">
+          <img src="/static/img/img2.jpg" alt="Employee" class="img-fluid float-left" />
+          <h4>Motor System</h4>
+        </div>
+        <div class="col-lg">
+          <img src="/static/img/img3.jpg" alt="HiRes" class="img-fluid float-left" />
+          <h4>Pump System</h4>
+        </div>
+        <div class="col-lg">
+          <img src="/static/img/hvac.jpg" alt="Security" class="img-fluid float-left" />
+          <h4>HVAC System</h4>
+        </div>
+      </div>
+      <div class="col-lg text-center">
+        <h2>MIE CS</h2>
+        <p>"Kami ahlinya manajemen pada Equipment Control System, no kaleng kaleng"</p>
+      </div>
+    </div>
+  </div>
+  <!-- end info mobil listrik -->
+  <!-- Testimonial -->
+  <section class="testimonial">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 justify-content-center d-flex">
+        <img src="{{ url_for ('static', filename = '/img/img4.jpg') }}" alt="Testimonial 1" />
+        <img src="{{ url_for ('static', filename = '/img/img5.jpg') }}" alt="Testimonial 2" class="img-main" />
+        <img src="{{ url_for ('static', filename = '/img/poke.png') }}" alt="Testimonial 3" />
+      </div>
+    </div>
+    <div class="row justify-content-center info-text">
+      <div class="col-lg text-center">
+        <h5>Prinsip Kami</h5>
+        <p>Santuy | Santuy | Tibalah deadline</p>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <p>"cape - praktikum - TIK. ~ Up"</p>
+      </div>
+    </div>
+  </section>
+  <!-- end Testimonial -->
+</div>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+  <path
+    fill="#a2d9ff"
+    fill-opacity="0.7"
+    d="M0,32L30,69.3C60,107,120,181,180,192C240,203,300,149,360,149.3C420,149,480,203,540,197.3C600,192,660,128,720,122.7C780,117,840,171,900,181.3C960,192,1020,160,1080,165.3C1140,171,1200,213,1260,202.7C1320,192,1380,128,1410,96L1440,64L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"
+  ></path>
+</svg>
+{% endblock %}
